@@ -1,0 +1,174 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Historique
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/simple-datatables/style.css')
+  link(rel='stylesheet' href='vendors/perfect-scrollbar/perfect-scrollbar.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='vendors/fontawesome/all.min.css') 
+  link(rel='stylesheet' href='css/app.css')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='/')
+              img(src='images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-item
+            a.sidebar-link(href='/')
+              i.bi.bi-grid-fill
+              span Acceuil
+          li.sidebar-item
+            a.sidebar-link(href='Consultation')
+              i.bi.bi-file-earmark-medical-fill
+              span Consulter les processus
+          li.sidebar-item
+            a.sidebar-link(href='fdemande')
+              i.bi.bi-pen-fill
+              span Faire une demande
+          li.sidebar-item.active
+            a.sidebar-link(href='Encours')
+              i.bi.bi-collection-fill
+              span Demandes en cours
+          if (ver5=='assistant de suivie')    
+            li.sidebar-item
+              a.sidebar-link(href='/traiter')
+                i.bi.bi-collection-fill
+                span Demandes a traiter 
+          if (ver5=='verificateur')    
+            li.sidebar-item
+              a.sidebar-link(href='/verifier')
+                i.bi.bi-collection-fill
+                span Dossier a verifier                
+              
+          li.sidebar-item
+            a.sidebar-link(href='Historique')
+              i.bi.bi-stack
+              span Historique
+          li.sidebar-item
+            a.sidebar-link(href='logout')
+              i.fa.fa-sign-out-alt(aria-hidden='true')
+              span Se déconnecter                  
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      .page-title
+        .row
+          .col-12.col-md-6.order-md-1.order-last
+            h3 Les demandes en cours
+            p.text-subtitle.text-muted Consulter vos demandes en cours, et faite des modifications
+          .col-12.col-md-6.order-md-2.order-first
+            nav.breadcrumb-header.float-start.float-lg-end(aria-label='breadcrumb')
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='index') Acceuil
+                li.breadcrumb-item.active(aria-current='page') Demande en cours
+      section.section
+        .col-12.col-lg-12.col-md-12
+          .card.collapse-icon.accordion-icon-rotate
+            .card-header
+              h1.card-title.pl-1 Votre liste
+            .card.collapse-header  
+              -var alerttype
+              each Demande, i in ver7
+                case Demande.etat
+                  when 'envoyé'
+                   -var alerttype='alert-secondary'
+                  when 'encours'
+                   -var alerttype='alert-warning'
+                  when 'finalisé'
+                   -var alerttype='alert-success'  
+                  when 'retraité'
+                    -var alerttype='alert-danger'                  
+
+              
+                #headingTwo.card-header(data-bs-toggle='collapse' data-bs-target='#collapseTwo'+i aria-expanded='false' aria-controls='collapseTwo' role='button')
+                  span.collapsed.collapse-title
+                    .alert(class=alerttype) 
+                      i.bi.bi-exclamation-triangle
+                      |  DemandeDMC=#{Demande.uuid}
+                .collapse.pt-1(aria-labelledby='headingThree' data-parent='#cardAccordion' id='collapseTwo'+i)
+                  .card-body
+                    table.table.mb-0.table-lg
+                      thead
+                        tr
+                          th DATE
+                          th service
+                          th Type
+                          th Etat
+                          th Action
+                      tbody
+                        tr
+                          td.text-bold-500 #{Demande.date} 
+                          td.text-bold-500 #{Demande.service}
+                          td.text-bold-500 #{Demande.type}
+                          td.text-bold-500 #{Demande.etat}
+                          td
+                            button.btn.btn-danger.block(type='button' data-bs-toggle='modal' data-bs-target='#default'+i)
+                              | Details
+                            // Basic Modal
+                            .modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel1' aria-hidden='true' id='default'+i)
+                              .modal-dialog.modal-dialog-scrollable.modal-dialog-centered.modal-lg(role='document')
+                                .modal-content
+                                  .modal-header
+                                    h5#myModalLabel1.modal-title Details de votre demande
+                                    button.close.rounded-pill(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                      i(data-feather='x')
+                                  .modal-body
+                                    table.table.mb-0.table-lg
+                                      thead
+                                        tr
+                                          th Numero
+                                          th Type
+                                          th Designation
+                                          th Quantité demandé
+                                          th Quantité accordé
+                                          th Observations
+                                      tbody
+                                        each liste in ver6
+                                          if (liste.demandeId==Demande.id)
+                                            tr
+                                              td.text-bold-500 #{liste.num} 
+                                              td.text-bold-500 #{Demande.type}
+                                              td.text-bold-500 #{liste.désignation}
+                                              td.text-bold-500 #{liste.quantitédem}
+                                              td.text-bold-500 #{liste.quantitéliv} 
+                                              td.text-bold-500 #{liste.observation} 
+                                  .modal-footer
+                                    button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                                      i.bx.bx-check.d-block.d-sm-none
+                                      span.d-none.d-sm-block Retour
+          
+              // large size Modal
+              section#modal-sizes
+
+           
+    footer
+      .footer.clearfix.mb-0.text-muted
+        .float-start
+          p 2021 &copy; Cosider
+        .float-end
+
+script(src='vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+script(src='js/bootstrap.bundle.min.js')
+script(src='vendors/simple-datatables/simple-datatables.js')
+script(src='vendors/fontawesome/all.min.js')    
+script.
+  // Simple Datatable
+  let table1 = document.querySelector('#table1');
+  let dataTable = new simpleDatatables.DataTable(table1);
+script(src='js/main.js')

@@ -1,0 +1,194 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Faire une demande - Cosider
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/perfect-scrollbar/perfect-scrollbar.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='css/app.css')
+  link(rel='shortcut icon' href='images/favicon.svg' type='image/x-icon')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='index')
+              img(src='images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-item
+            a.sidebar-link(href='index')
+              i.bi.bi-grid-fill
+              span Acceuil
+          li.sidebar-item
+            a.sidebar-link(href='Historique')
+              i.bi.bi-stack
+              span Historique
+          li.sidebar-item
+            a.sidebar-link(href='Consultation')
+              i.bi.bi-file-earmark-medical-fill
+              span Consulter les processus
+          li.sidebar-item.active
+            a.sidebar-link(href='Demande')
+              i.bi.bi-pen-fill
+              span Faire une demande
+          li.sidebar-item
+            a.sidebar-link(href='Encours')
+              i.bi.bi-collection-fill
+              span Demandes en cours
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      .page-title
+        .row
+          .col-12.col-md-6.order-md-1.order-last
+            h3 Faire une demande
+            p.text-subtitle.text-muted
+              | Demander des fichiers, des mat&eacute;riaux, des n&eacute;cessit&eacute;s et bien plus au bout d&apos;un clic
+          .col-12.col-md-6.order-md-2.order-first
+            nav.breadcrumb-header.float-start.float-lg-end(aria-label='breadcrumb')
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='index') Acceuil
+                li.breadcrumb-item.active(aria-current='page') Faire une demande
+      section.section
+        .card
+          .card-header
+            h4.card-title Remplir le formulaire
+          .card-body
+            p
+              | choisissez la direction &agrave; partir de laquelle vous souhaitez faire la demande
+            .list-group.list-group-horizontal-sm.mb-1.text-center(role='tablist')
+              a#list-sunday-list.list-group-item.list-group-item-action.active(data-bs-toggle='list' href='#list-sunday' role='tab') DMC
+              a#list-monday-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-monday' role='tab') Direction 2
+              a#list-tuesday-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-tuesday' role='tab') Direction 3
+            .tab-content.text-justify
+              #list-sunday.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='list-sunday-list')
+                .card-content
+                  .card-body
+                    form#vardemande.form.form-horizontal
+                      .form-body
+                        .row
+                          .col-md-4
+                            label Sujet
+                          .col-md-8.form-group
+                            input#first-name.form-control(type='text' name='type' placeholder='Sujet')
+                          .col-md-4
+                            label Date
+                          .col-md-8.form-group
+                            input#email-id.form-control(type='date' name='date' placeholder='date')
+                          .col-md-4
+                            label Direction
+                          .col-md-8.form-group
+                            input#contact-info.form-control(type='text' name='service' placeholder='direction')
+                          .col-md-4
+                            label Nom
+                          .col-md-8.form-group
+                            input#password.form-control(type='text' name='nom' placeholder='nom')
+                          .col-md-4
+                            label  Fourniture 
+                          .col-md-8.form.form-group
+                            select#choice(demande='désignation')
+                              option(value='chaise')  Chaise 
+                              option(value='Bureau') Bureau 
+                              option(value='table') Tableau
+
+                          .col-sm-12.d-flex.justify-content-end
+                            button.btn.btn-primary.me-1.mb-1(type='submit') Envoyer
+                            button.btn.btn-light-secondary.me-1.mb-1(type='reset') Reset
+                            
+            
+            
+  script.
+          /*const vardemande= document.getElementById('vardemande')
+          vardemande.addEventListener("submit",(e)=> {
+         e.preventDefault();*/
+
+
+        vardemande.addEventListener("submit",(e)=> {
+         e.preventDefault();
+    getDevices = async () => {
+      const location = window.location.hostname;
+      const settings = {
+    method: 'POST',
+      headers:{
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(data)
+    };
+    try {
+      const fetchResponse = await fetch(`http://${location}:5000/demande`, settings);
+      const data = await fetchResponse.json();
+      return data;
+    } 
+    catch (e) {
+    return e;
+    }
+    } 
+        
+          let fname = document.getElementById("first-name").value;
+          let date = document.getElementById("email-id").value;
+          let type = document.getElementById("contact-info").value;
+          let service =  document.getElementById("password").value;
+          let data= {"nom": fname, "date": date, "service": service, "type": type};
+    getDevices(data);
+    
+    getDevices2 = async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      const location = window.location.hostname;
+      const settings = {
+        method: 'POST',
+      headers:{
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(data2)
+    };
+    try {
+      const fetchResponse = await fetch(`http://${location}:5000/listedemande`, settings);
+      const data2 = await fetchResponse.json();
+      return data2;
+    } 
+    catch (e) {
+    return e;
+    }
+    } 
+        
+          let désignation = document.getElementById("choice").value;
+          let data2= {"désignation": désignation};
+    getDevices2(data2);
+
+
+          })
+            
+                    
+
+.col-sm-12.d-flex.justify-content-end
+button.btn.btn-primary.me-1.mb-1(type='submit') Envoyer
+button.btn.btn-light-secondary.me-1.mb-1(type='reset') Reset
+footer
+.footer.clearfix.mb-0.text-muted
+.float-start
+p 2021 &copy; Cosider
+.float-end
+p
+  | Crafted with 
+  span.text-danger
+    i.bi.bi-heart
+  |  by 
+  a(href='#') A. Choukri
+script(src='vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+script(src='js/bootstrap.bundle.min.js')
+script(src='js/main.js')

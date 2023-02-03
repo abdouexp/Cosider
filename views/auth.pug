@@ -1,0 +1,45 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Authentification-Cosider
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='bootstrap.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='app.css')
+  link(rel='stylesheet' href='auth.css')
+#auth
+  .row.h-100
+    .col-lg-5.col-12
+      #auth-left
+        .auth-logo
+          a(href='/login')
+            img(src='logo.png' alt='Logo')   
+        h1.auth-title S'authentifier.
+        p.auth-subtitle.mb-5 Connectez-vous avec les donn&eacute;es que vous avez saisies lors de l&apos;inscription.
+        form(method='POST' action='/login')
+          .position-relative.mb-4       
+            != messages('messagestemp', locals)        
+          .form-group.position-relative.has-icon-left.mb-4
+            input.form-control.form-control-xl(type='text' placeholder="Nom d'utilisateur" name='username')
+            .form-control-icon
+              i.bi.bi-person
+          .form-group.position-relative.has-icon-left.mb-4
+            input.form-control.form-control-xl(type='password' placeholder='Mot de passe' name='password')
+            .form-control-icon
+              i.bi.bi-shield-lock
+          .form-check.form-check-lg.d-flex.align-items-end
+            input#flexCheckDefault.form-check-input.me-2(type='checkbox' value='')
+            label.form-check-label.text-gray-600(for='flexCheckDefault')
+              | Rester connect&eacute;
+          button.btn.btn-primary.btn-block.btn-lg.shadow-lg.mt-5 Connectez vous
+        .text-center.mt-5.text-lg.fs-4
+          p.text-gray-600
+            | Vous n&apos;avez pas de compte ? 
+            a.font-bold(href='register') Inscrivez-vous
+            | .
+          p
+            a.font-bold(href='forgot') Mot de passe oubli&eacute;?
+            | .
+    .col-lg-7.d-none.d-lg-block
+      #auth-right

@@ -1,0 +1,137 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Consulter les processus
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/perfect-scrollbar/perfect-scrollbar.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='vendors/fontawesome/all.min.css') 
+  link(rel='stylesheet' href='css/app.css')
+  link(rel='shortcut icon' href='images/favicon.svg' type='image/x-icon')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='index.html')
+              img(src='images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-item
+            a.sidebar-link(href='/')
+              i.bi.bi-grid-fill
+              span Acceuil
+          li.sidebar-item.active
+            a.sidebar-link(href='Consultation')
+              i.bi.bi-file-earmark-medical-fill
+              span Consulter les processus
+          li.sidebar-item
+            a.sidebar-link(href='fdemande')
+              i.bi.bi-pen-fill
+              span Faire une demande
+          li.sidebar-item
+            a.sidebar-link(href='Encours')
+              i.bi.bi-collection-fill
+              span Demandes en cours
+          if (ver5=='assistant de suivie')    
+            li.sidebar-item
+              a.sidebar-link(href='/traiter')
+                i.bi.bi-collection-fill
+                span Demandes a traiter 
+          if (ver5=='verificateur')    
+            li.sidebar-item
+              a.sidebar-link(href='/verifier')
+                i.bi.bi-collection-fill
+                span Dossier a verifier               
+          li.sidebar-item
+            a.sidebar-link(href='Historique')
+              i.bi.bi-stack
+              span Historique
+          li.sidebar-item
+            a.sidebar-link(href='logout')
+              i.fa.fa-sign-out-alt(aria-hidden='true')
+              span Se déconnecter                  
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      .page-title
+        .row
+          .col-12.col-md-6.order-md-1.order-last
+            h3 Consulter Les processus
+            p.text-subtitle.text-muted Consulter tous les processus qui peut vous aider a rediger une demande 
+          .col-12.col-md-6.order-md-2.order-first
+            nav.breadcrumb-header.float-start.float-lg-end(aria-label='breadcrumb')
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='index.html') Acceuil
+                li.breadcrumb-item.active(aria-current='page') Consulter les processus
+      section.list-group-navigation
+        .row
+          .col-lg-12
+            .card
+              .card-header
+                h4.card-title Les Processus De la DMC
+              .card-content
+                .card-body
+                  .row
+                    .col-6.col-sm-6.col-md-3
+                      label
+                      .list-group(role='tablist')
+                        a#list-home-list.list-group-item.list-group-item-action.active(data-bs-toggle='list' href='#list-home' role='tab') Demande
+                        a#list-profile-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-profile' role='tab') Traitement
+                        a#list-messages-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-messages' role='tab') Autre
+
+                    .col-6.col-sm-6.col-md-9
+                      #nav-tabContent.tab-content.text-justify
+                        #list-home.tab-pane.show.active(role='tabpanel' aria-labelledby='list-home-list')
+                          .card
+                            .card-content
+                              .card-body
+                                .list-group
+                                  button.list-group-item.list-group-item-action.active(type='button') FM_MC_001_00_demande_de_fourniture
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_004_02_demande_de_tirage
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_034_01_demande_de_service
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_021_00_demande_d'intervention preventive et curative
+                        #list-profile.tab-pane(role='tabpanel' aria-labelledby='list-profile-list')
+                          .card
+                            .card-content
+                              .card-body
+                                .list-group
+                                  button.list-group-item.list-group-item-action.active(type='button') FM_MC_001_00_demande
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_004_02_demande222
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_034_01_demande252
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_021_00_demande1212121
+                        #list-messages.tab-pane(role='tabpanel' aria-labelledby='list-messages-list')
+                          .card
+                            .card-content
+                              .card-body
+                                .list-group
+                                  button.list-group-item.list-group-item-action.active(type='button') FM_MC_001_00_demande_de_chaise
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_154_12_demande
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_504_01_demande
+                                  button.list-group-item.list-group-item-action(type='button') FM_MC_234_00_demande
+                        #list-settings.tab-pane(role='tabpanel' aria-labelledby='list-settings-list')
+                          .card
+                            .card-content
+                              .card-body
+                                .list-group
+                                  button.list-group-item.list-group-item-action.active(type='button') FM_ML_001_00_demande_de_moyens
+                                  button.list-group-item.list-group-item-action(type='button') FM_ML_004_02_demande-PC
+                                  button.list-group-item.list-group-item-action(type='button') FM_ML_234_01_demande-papier
+                                  button.list-group-item.list-group-item-action(type='button') FM_ML_021_00_demande
+                                  
+    script(src='vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+    script(src='js/bootstrap.bundle.min.js')
+    script(src='js/main.js')
+    script(src='vendors/fontawesome/all.min.js')

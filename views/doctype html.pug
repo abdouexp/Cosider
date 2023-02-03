@@ -1,0 +1,146 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Acceuil - Cosider
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+ link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='bootstrap.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='app.css')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='index.html')
+              img(src='assets/images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-item.active
+            a.sidebar-link(href='index.html')
+              i.bi.bi-grid-fill
+              span Acceuil
+          li.sidebar-item
+            a.sidebar-link(href='Historique.html')
+              i.bi.bi-stack
+              span Historique
+          li.sidebar-item
+            a.sidebar-link(href='Consultation.html')
+              i.bi.bi-file-earmark-medical-fill
+              span Consulter les processus
+          li.sidebar-item
+            a.sidebar-link(href='Demande.html')
+              i.bi.bi-pen-fill
+              span Faire une demande
+          li.sidebar-item
+            a.sidebar-link(href='Encours.html')
+              i.bi.bi-collection-fill
+              span Demandes en cours
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      h3 Bienvenu, Monsieur Legoui
+    .page-content
+      section.row
+        .col-12.col-lg-9
+          .row
+            .col-6.col-lg-4.col-md-6
+              .card
+                .card-body.px-3.py-4-5(button='')
+                  .row
+                    .col-md-4
+                      .stats-icon.red
+                        i.iconly-boldBookmark
+                    .col-md-8
+                      a.text-muted.font-semibold(href='table.html')  Historique
+                      h6.font-extrabold.mb-0 12 demandes
+              .card
+                .card-header
+                  h4.card-title Consulter les processus recommand&eacute;s
+                .card-content
+                  .card-body
+                    .list-group
+                      button.list-group-item.list-group-item-action.active(type='button') FM_MC_001_00_demande_de_fourniture
+                      button.list-group-item.list-group-item-action(type='button') FM_MC_004_02_demande_de_mat&eacute;riel
+                      button.list-group-item.list-group-item-action(type='button') FM_MC_034_01_demande
+                      button.list-group-item.list-group-item-action(type='button') FM_MC_021_00_demande
+            .col-8.col-lg-8.col-md-6
+              .card
+                .card-header
+                  h4 Mes demandes r&eacute;centes
+                .card-body
+                  .alert.alert-success
+                    i.bi.bi-check-circle
+                    |  Demande#0023DMC effectu&eacute;e.
+                  .alert.alert-warning
+                    i.bi.bi-exclamation-triangle
+                    |  Demande#0035DMC en cours de traitement.
+                  .alert.alert-warning
+                    i.bi.bi-exclamation-triangle
+                    |  Demande#0042DMC en cours de traitement.
+                  .alert.alert-danger
+                    i.bi.bi-file-excel
+                    |  Demande#0003DMC rejeter.
+                  .alert.alert-secondary
+                    i.bi.bi-star
+                    |  Demande brouillon.
+        .col-12.col-lg-3
+          .card
+            .card-body.py-4.px-5
+              .d-flex.align-items-center
+                .avatar.avatar-xl
+                  img(src='assets/images/faces/1.jpg' alt='Face 1')
+                .ms-3.name
+                  h5.font-bold Abderrahmane LEGOUI
+                  h6.text-muted.mb-0 @legoui.a
+          .card
+            .card-header
+              h4 Messages r&eacute;cents
+            .card-content.pb-4
+              .recent-message.d-flex.px-4.py-3
+                .avatar.avatar-lg
+                  img(src='assets/images/faces/4.jpg')
+                .name.ms-4
+                  h5.mb-1 Lyes ARAB
+                  h6.text-muted.mb-0 @Arab.l
+              .recent-message.d-flex.px-4.py-3
+                .avatar.avatar-lg
+                  img(src='assets/images/faces/5.jpg')
+                .name.ms-4
+                  h5.mb-1 Abdou CHOUKRI
+                  h6.text-muted.mb-0 @choukri.a
+              .recent-message.d-flex.px-4.py-3
+                .avatar.avatar-lg
+                  img(src='assets/images/faces/1.jpg')
+                .name.ms-4
+                  h5.mb-1 Merouane
+                  h6.text-muted.mb-0 @Merouane.m
+              .px-4
+                button.btn.btn-block.btn-xl.btn-light-primary.font-bold.mt-3
+                  | Messagerie
+          footer
+            .footer.clearfix.mb-0.text-muted
+              .float-start
+                p 2021 COSIDER
+              .float-end
+                p
+                  | Crafted with 
+                  span.text-danger
+                    i.bi.bi-heart
+                  |  by 
+                  a(href='http://ahmadsaugi.com') Abdou choukri
+    script(src='assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+    script(src='assets/js/bootstrap.bundle.min.js')
+    script(src='assets/vendors/apexcharts/apexcharts.js')
+    script(src='assets/js/pages/dashboard.js')
+    script(src='assets/js/main.js')

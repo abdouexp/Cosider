@@ -1,0 +1,18 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title 403 - Mazer Admin Dashboard
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='css/app.css')
+  link(rel='stylesheet' href='css/pages/error.css')
+#error
+  .error-page.container
+    .col-md-8.col-12.offset-md-2
+      img.img-error(src='images/samples/error-403.png' alt='Not Found')
+      .text-center
+        h1.error-title Forbidden 403
+        p.fs-5.text-gray-600 Accès refusé.
+        a.btn.btn-lg.btn-outline-primary.mt-3(href='/') Retourner

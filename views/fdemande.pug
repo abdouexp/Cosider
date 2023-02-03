@@ -1,0 +1,238 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Faire une demande - Cosider
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/perfect-scrollbar/perfect-scrollbar.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='css/app.css')
+  link(rel='stylesheet' href='vendors/fontawesome/all.min.css') 
+  link(rel='shortcut icon' href='images/favicon.svg' type='image/x-icon')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='/')
+              img(src='images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-item
+            a.sidebar-link(href='/')
+              i.bi.bi-grid-fill
+              span Acceuil
+          li.sidebar-item
+            a.sidebar-link(href='Consultation')
+              i.bi.bi-file-earmark-medical-fill
+              span Consulter les processus
+          li.sidebar-item.active
+            a.sidebar-link(href='fdemande')
+              i.bi.bi-pen-fill
+              span Faire une demande
+          li.sidebar-item
+            a.sidebar-link(href='Encours')
+              i.bi.bi-collection-fill
+              span Demandes en cours
+          if (ver5=='assistant de suivie')    
+            li.sidebar-item
+              a.sidebar-link(href='/traiter')
+                i.bi.bi-collection-fill
+                span Demandes a traiter 
+          if (ver5=='verificateur')    
+            li.sidebar-item
+              a.sidebar-link(href='/verifier')
+                i.bi.bi-collection-fill
+                span Dossier a verifier               
+          li.sidebar-item
+            a.sidebar-link(href='Historique')
+              i.bi.bi-stack              
+              span Historique               
+          li.sidebar-item
+            a.sidebar-link(href='logout')
+              i.fa.fa-sign-out-alt(aria-hidden='true')
+              span Se déconnecter               
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      .page-title
+        .row
+          .col-12.col-md-6.order-md-1.order-last
+            h3 Faire une demande
+            p.text-subtitle.text-muted
+              | Demander des fichiers, des mat&eacute;riaux, des n&eacute;cessit&eacute;s et bien plus au bout d&apos;un clic
+          .col-12.col-md-6.order-md-2.order-first
+            nav.breadcrumb-header.float-start.float-lg-end(aria-label='breadcrumb')
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='/') Acceuil
+                li.breadcrumb-item.active(aria-current='page') Faire une demande
+      section.section
+        .card
+          .card-header
+            h4.card-title Remplir le formulaire
+          .card-body
+            p
+              | choisissez la direction &agrave; partir de laquelle vous souhaitez faire la demande
+            .list-group.list-group-horizontal-sm.mb-1.text-center(role='tablist')
+              a#list-sunday-list.list-group-item.list-group-item-action.active(data-bs-toggle='list' href='#list-sunday' role='tab').b Demande dynamique
+              a#list-monday-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-monday' role='tab').b Demandes statiques 
+            .tab-content.text-justify
+              #list-sunday.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='list-sunday-list')
+                .card-content
+                  .card-body
+                    form#vardemande.form.form-horizontal
+                      .form-body
+                        .row
+                          .col-md-3
+                            label Date
+                          .col-md-9.form-group
+                            input#date.form-control(type='date' name='date' placeholder='date')
+                          .col-md-3
+                            label Service
+                          .col-md-9.form-group
+                            input#service.form-control(type='text' name='service' placeholder='direction')
+                          .col-md-3
+                            label type demande
+                          .col-md-9.form-group
+                            select#type.form-control(name='types')
+                              option(value='' selected='selected') choisir type de demande
+
+                          hr
+                            
+                          
+                             
+                          .col-md-3
+                            .form-group
+                              label Designation
+                              .input-group
+                                label#basic-addon1.input-group-text 1
+                                select#choice0.choices.form-select(name='')
+                                    option(value='' selected='selected') Choisir item  
+                          .col-md-2
+                            .form-group
+                              label Unité
+                              input#ut0.form-control.round(type='text' placeholder='' name ='test')
+                          .col-md-2
+                            .form-group
+                              label Quantité
+                              input#qts0.form-control.round(type='text' placeholder='')
+                          .col-md-5
+                            .form-group
+                              label Observations
+                              input#obs0.form-control.round(type='text' placeholder='') 
+                          .col-md-3
+                            .form-group
+                              label 
+                              .input-group
+                                label#basic-addon1.input-group-text 2
+                                select#choice1.choices.form-select(name='Designation')
+                                    option(value='' selected='selected') Choisir item 
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#ut1.form-control.round(type='text' placeholder='')
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#qts1.form-control.round(type='text' placeholder='')
+                          .col-md-5
+                            .form-group
+                              label 
+                              input#obs1.form-control.round(type='text' placeholder='') 
+                          .col-md-3
+                            .form-group
+                              label 
+                              .input-group
+                                label#basic-addon1.input-group-text 3
+                                select#choice2.choices.form-select(name='')
+                                    option(value='' selected='selected') Choisir item  
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#ut2.form-control.round(type='text' placeholder='')
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#qts2.form-control.round(type='text' placeholder='')
+                          .col-md-5
+                            .form-group
+                              label 
+                              input#obs2.form-control.round(type='text' placeholder='') 
+                          .col-md-3
+                            .form-group
+                              label 
+                              .input-group
+                                label#basic-addon1.input-group-text 4
+                                select#choice3.choices.form-select(name='')
+                                    option(value='' selected='selected') Choisir item  
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#ut3.form-control.round(type='text' placeholder='')
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#qts3.form-control.round(type='text' placeholder='')
+                          .col-md-5
+                            .form-group
+                              label 
+                              input#obs3.form-control.round(type='text' placeholder='') 
+                          .col-md-3
+                            .form-group
+                              label 
+                              .input-group
+                                label#basic-addon1.input-group-text 5
+                                select#choice4.choices.form-select(name='')
+                                    option(value='' selected='selected') Choisir item
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#ut4.form-control.round(type='text' placeholder='')
+                          .col-md-2
+                            .form-group
+                              label 
+                              input#qts4.form-control.round(type='text' placeholder='')
+                          .col-md-5
+                            .form-group
+                              label 
+                              input#obs4.form-control.round(type='text' placeholder='')                                                                                                                                                                                                                              
+
+                             
+                          
+                          .col-sm-12.d-flex.justify-content-end
+                            button.btn.btn-primary.me-1.mb-1(type='submit') Envoyer
+                            button.btn.btn-light-secondary.me-1.mb-1(type='reset') Reset
+                            
+            
+            
+
+                            
+
+footer
+.footer.clearfix.mb-0.text-muted
+.float-start
+p 2021 &copy; Cosider
+.float-end
+p
+  | Crafted with 
+  span.text-danger
+    i.bi.bi-heart
+  |  by 
+  a(href='#') A. Choukri
+script(src='vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+script(src='vendors/choices.js/choices.min.js')
+script(src='js/bootstrap.bundle.min.js')
+script(src='js/traitementd.js')
+script(src='js/main.js')
+script(src='vendors/fontawesome/all.min.js')

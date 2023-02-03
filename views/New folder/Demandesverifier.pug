@@ -1,0 +1,133 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Historique
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/css/bootstrap.css')
+  link(rel='stylesheet' href='/vendors/simple-datatables/style.css')
+  link(rel='stylesheet' href='/vendors/perfect-scrollbar/perfect-scrollbar.css')
+  link(rel='stylesheet' href='/vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='/css/app.css')
+  link(rel='shortcut icon' href='/images/favicon.svg' type='image/x-icon')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='index.html')
+              img(src='/images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-item
+            a.sidebar-link(href='/')
+              i.bi.bi-grid-fill
+              span Acceuil
+          li.sidebar-item
+            a.sidebar-link(href='Consultation')
+              i.bi.bi-file-earmark-medical-fill
+              span Consulter les processus
+          li.sidebar-item
+            a.sidebar-link(href='fdemande')
+              i.bi.bi-pen-fill
+              span Faire une demande
+          li.sidebar-item
+            a.sidebar-link(href='Encours')
+              i.bi.bi-collection-fill
+              span Demandes en cours
+          li.sidebar-item.active
+            a.sidebar-link(href='/verifier')
+              i.bi.bi-collection-fill
+              span Dossiers a verifier
+
+          li.sidebar-item
+            a.sidebar-link(href='Historique')
+              i.bi.bi-stack
+              span Historique
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      .page-title
+        .row
+          .col-12.col-md-6.order-md-1.order-last
+            h3 Les dossiers non verifié
+            p.text-subtitle.text-muted Consulter les demandes a traiter
+          .col-12.col-md-6.order-md-2.order-first
+            nav.breadcrumb-header.float-start.float-lg-end(aria-label='breadcrumb')
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='index.html') Acceuil
+                li.breadcrumb-item.active(aria-current='page') Demande A traiter
+      section.section
+        .col-12.col-lg-12.col-md-12
+          .card.collapse-icon.accordion-icon-rotate
+            .card-header
+              h1.card-title.pl-1 Votre liste
+            .card.collapse-header
+              -var alerttype
+              -var tot='0'
+              each Demande, i in zebi
+                case Demande.etat
+                  when 'traité'
+                   -var alerttype='alert-secondary'
+                  when 'encours'
+                   -var alerttype='alert-warning'
+                  when 'traite'
+                   -var alerttype='alert-success'                 
+                   
+                
+                -var tot='1'
+                #headingTwo.card-header(data-bs-toggle='collapse' data-bs-target='#collapseTwo'+i aria-expanded='false' aria-controls='collapseTwo' role='button')
+                  span.collapsed.collapse-title
+                    .alert(class=alerttype)
+                      i.bi.bi-exclamation-triangle
+                      |  #{Demande.uuid}
+                .collapse.pt-1(aria-labelledby='headingThree' data-parent='#cardAccordion' id ='collapseTwo'+i)
+                  .card-body
+                    table.table.mb-0.table-lg
+                      thead
+                        tr
+                          th Date
+                          th nom
+                          th service
+                          th Type de demande
+                        tr
+                          td #{Demande.date}
+                          td #{Demande.nom}
+                          td #{Demande.service}
+                          td #{Demande.type}
+                          td #{zebi.length}
+                    .row
+                      .col-sm-12.d-flex.justify-content-end
+                        label 
+                        a.btn.btn-primary.me-1.mb-1(href='#') Traiter
+                        a.btn.btn-primary.me-1.mb-1(href='/demanderetraiter/'+Demande.uuid) signaler
+                
+              if(zebi.length==0)
+                .row
+                  .col-md-4
+                    label
+                  .col-md-5
+                    .h5 Il n'y a aucun dossier a verifier
+    footer
+      .footer.clearfix.mb-0.text-muted
+        .float-start
+          p 2021 &copy; Cosider
+
+script(src='/vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+script(src='/js/bootstrap.bundle.min.js')
+script(src='/vendors/simple-datatables/simple-datatables.js')
+script.
+  // Simple Datatable
+  let table1 = document.querySelector('#table1');
+  let dataTable = new simpleDatatables.DataTable(table1);
+script(src='js/main.js')

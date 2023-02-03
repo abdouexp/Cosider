@@ -1,0 +1,1065 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Modal - Mazer Admin Dashboard
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/perfect-scrollbar/perfect-scrollbar.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='css/app.css')
+  link(rel='shortcut icon' href='images/favicon.svg' type='image/x-icon')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='index.html')
+              img(src='images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-title Menu
+          li.sidebar-item
+            a.sidebar-link(href='index.html')
+              i.bi.bi-grid-fill
+              span Dashboard
+          li.sidebar-item.active.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-stack
+              span Components
+            ul.submenu.active
+              li.submenu-item
+                a(href='component-alert.html') Alert
+              li.submenu-item
+                a(href='component-badge.html') Badge
+              li.submenu-item
+                a(href='component-breadcrumb.html') Breadcrumb
+              li.submenu-item
+                a(href='component-button.html') Button
+              li.submenu-item
+                a(href='component-card.html') Card
+              li.submenu-item
+                a(href='component-carousel.html') Carousel
+              li.submenu-item
+                a(href='component-dropdown.html') Dropdown
+              li.submenu-item
+                a(href='component-list-group.html') List Group
+              li.submenu-item.active
+                a(href='component-modal.html') Modal
+              li.submenu-item
+                a(href='component-navs.html') Navs
+              li.submenu-item
+                a(href='component-pagination.html') Pagination
+              li.submenu-item
+                a(href='component-progress.html') Progress
+              li.submenu-item
+                a(href='component-spinner.html') Spinner
+              li.submenu-item
+                a(href='component-tooltip.html') Tooltip
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-collection-fill
+              span Extra Components
+            ul.submenu
+              li.submenu-item
+                a(href='extra-component-avatar.html') Avatar
+              li.submenu-item
+                a(href='extra-component-sweetalert.html') Sweet Alert
+              li.submenu-item
+                a(href='extra-component-toastify.html') Toastify
+              li.submenu-item
+                a(href='extra-component-rating.html') Rating
+              li.submenu-item
+                a(href='extra-component-divider.html') Divider
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-grid-1x2-fill
+              span Layouts
+            ul.submenu
+              li.submenu-item
+                a(href='layout-default.html') Default Layout
+              li.submenu-item
+                a(href='layout-vertical-1-column.html') 1 Column
+              li.submenu-item
+                a(href='layout-vertical-navbar.html') Vertical Navbar
+              li.submenu-item
+                a(href='layout-rtl.html') RTL Layout
+              li.submenu-item
+                a(href='layout-horizontal.html') Horizontal Menu
+          li.sidebar-title Forms &amp; Tables
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-hexagon-fill
+              span Form Elements
+            ul.submenu
+              li.submenu-item
+                a(href='form-element-input.html') Input
+              li.submenu-item
+                a(href='form-element-input-group.html') Input Group
+              li.submenu-item
+                a(href='form-element-select.html') Select
+              li.submenu-item
+                a(href='form-element-radio.html') Radio
+              li.submenu-item
+                a(href='form-element-checkbox.html') Checkbox
+              li.submenu-item
+                a(href='form-element-textarea.html') Textarea
+          li.sidebar-item
+            a.sidebar-link(href='form-layout.html')
+              i.bi.bi-file-earmark-medical-fill
+              span Form Layout
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-pen-fill
+              span Form Editor
+            ul.submenu
+              li.submenu-item
+                a(href='form-editor-quill.html') Quill
+              li.submenu-item
+                a(href='form-editor-ckeditor.html') CKEditor
+              li.submenu-item
+                a(href='form-editor-summernote.html') Summernote
+              li.submenu-item
+                a(href='form-editor-tinymce.html') TinyMCE
+          li.sidebar-item
+            a.sidebar-link(href='table.html')
+              i.bi.bi-grid-1x2-fill
+              span Table
+          li.sidebar-item
+            a.sidebar-link(href='table-datatable.html')
+              i.bi.bi-file-earmark-spreadsheet-fill
+              span Datatable
+          li.sidebar-title Extra UI
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-pentagon-fill
+              span Widgets
+            ul.submenu
+              li.submenu-item
+                a(href='ui-widgets-chatbox.html') Chatbox
+              li.submenu-item
+                a(href='ui-widgets-pricing.html') Pricing
+              li.submenu-item
+                a(href='ui-widgets-todolist.html') To-do List
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-egg-fill
+              span Icons
+            ul.submenu
+              li.submenu-item
+                a(href='ui-icons-bootstrap-icons.html') Bootstrap Icons 
+              li.submenu-item
+                a(href='ui-icons-fontawesome.html') Fontawesome
+              li.submenu-item
+                a(href='ui-icons-dripicons.html') Dripicons
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-bar-chart-fill
+              span Charts
+            ul.submenu
+              li.submenu-item
+                a(href='ui-chart-chartjs.html') ChartJS
+              li.submenu-item
+                a(href='ui-chart-apexcharts.html') Apexcharts
+          li.sidebar-item
+            a.sidebar-link(href='ui-file-uploader.html')
+              i.bi.bi-cloud-arrow-up-fill
+              span File Uploader
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-map-fill
+              span Maps
+            ul.submenu
+              li.submenu-item
+                a(href='ui-map-google-map.html') Google Map
+              li.submenu-item
+                a(href='ui-map-jsvectormap.html') JS Vector Map
+          li.sidebar-title Pages
+          li.sidebar-item
+            a.sidebar-link(href='application-email.html')
+              i.bi.bi-envelope-fill
+              span Email Application
+          li.sidebar-item
+            a.sidebar-link(href='application-chat.html')
+              i.bi.bi-chat-dots-fill
+              span Chat Application
+          li.sidebar-item
+            a.sidebar-link(href='application-gallery.html')
+              i.bi.bi-image-fill
+              span Photo Gallery
+          li.sidebar-item
+            a.sidebar-link(href='application-checkout.html')
+              i.bi.bi-basket-fill
+              span Checkout Page
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-person-badge-fill
+              span Authentication
+            ul.submenu
+              li.submenu-item
+                a(href='auth-login.html') Login
+              li.submenu-item
+                a(href='auth-register.html') Register
+              li.submenu-item
+                a(href='auth-forgot-password.html') Forgot Password
+          li.sidebar-item.has-sub
+            a.sidebar-link(href='#')
+              i.bi.bi-x-octagon-fill
+              span Errors
+            ul.submenu
+              li.submenu-item
+                a(href='error-403.html') 403
+              li.submenu-item
+                a(href='error-404.html') 404
+              li.submenu-item
+                a(href='error-500.html') 500
+          li.sidebar-title Raise Support
+          li.sidebar-item
+            a.sidebar-link(href='https://zuramai.github.io/mazer/docs')
+              i.bi.bi-life-preserver
+              span Documentation
+          li.sidebar-item
+            a.sidebar-link(href='https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md')
+              i.bi.bi-puzzle
+              span Contribute
+          li.sidebar-item
+            a.sidebar-link(href='https://github.com/zuramai/mazer#donate')
+              i.bi.bi-cash
+              span Donate
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      .page-title
+        .row
+          .col-12.col-md-6.order-md-1.order-last
+            h3 Modal
+            p.text-subtitle.text-muted
+              | Use Bootstrap&rsquo;s JavaScript modal plugin to add dialogs to your site
+              | for lightboxes, user notifications, or completely
+              | custom content
+          .col-12.col-md-6.order-md-2.order-first
+            nav.breadcrumb-header.float-start.float-lg-end(aria-label='breadcrumb')
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='index.html') Dashboard
+                li.breadcrumb-item.active(aria-current='page') Modal
+      section#basic-modals
+        .row
+          .col-md-6.col-12
+            .card
+              .card-header
+                h4.card-title Basic Modal
+              .card-body
+                p
+                  | Toggle a modal via JavaScript by clicking the button above.
+                  | You can use modal to add dialogs to your site for lightboxes, user
+                  | notifications, or completely custom content.
+                // Button trigger for basic modal
+                button.btn.btn-outline-primary.block(type='button' data-bs-toggle='modal' data-bs-target='#default')
+                  | Launch Modal
+                // Basic Modal
+                #default.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel1' aria-hidden='true')
+                  .modal-dialog.modal-dialog-scrollable(role='document')
+                    .modal-content
+                      .modal-header
+                        h5#myModalLabel1.modal-title Basic Modal
+                        button.close.rounded-pill(type='button' data-bs-dismiss='modal' aria-label='Close')
+                          i(data-feather='x')
+                      .modal-body
+                        p
+                          | Bonbon caramels muffin. Chocolate bar oat cake cookie pastry drag&eacute;e pastry.
+                          | Carrot cake
+                          | chocolate tootsie roll chocolate bar candy canes biscuit.
+                          | Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet
+                          | roll. Toffee sugar
+                          | plum sugar plum jelly-o jujubes bonbon dessert carrot cake. Cookie dessert
+                          | tart muffin topping
+                          | donut icing fruitcake. Sweet roll cotton candy drag&eacute;e danish Candy canes
+                          | chocolate bar cookie.
+                          | Gingerbread apple pie oat cake. Carrot cake fruitcake bear claw. Pastry
+                          | gummi bears
+                          | marshmallow jelly-o.
+                      .modal-footer
+                        button.btn(type='button' data-bs-dismiss='modal')
+                          i.bx.bx-x.d-block.d-sm-none
+                          span.d-none.d-sm-block Close
+                        button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                          i.bx.bx-check.d-block.d-sm-none
+                          span.d-none.d-sm-block Accept
+          .col-md-6.col-12
+            .card
+              .card-header
+                h4.card-title BorderLess Modal
+              .card-content
+                .card-body
+                  p
+                    | Toggle a Boderless via JavaScript by clicking the button above. Use
+                    code .modal-borderless
+                    |                                 with 
+                    code .modal
+                    | for BorderLess modal.
+                  // Button trigger for BorderLess Modal
+                  button.btn.btn-outline-primary.block(type='button' data-bs-toggle='modal' data-bs-target='#border-less')
+                    | Launch Modal
+                  // BorderLess Modal Modal
+                  #border-less.modal.fade.text-left.modal-borderless(tabindex='-1' role='dialog' aria-labelledby='myModalLabel1' aria-hidden='true')
+                    .modal-dialog.modal-dialog-scrollable(role='document')
+                      .modal-content
+                        .modal-header
+                          h5.modal-title Border-Less
+                          button.close.rounded-pill(type='button' data-bs-dismiss='modal' aria-label='Close')
+                            i(data-feather='x')
+                        .modal-body
+                          p
+                            | Bonbon caramels muffin. Chocolate bar oat cake cookie pastry drag&eacute;e
+                            | pastry. Carrot cake
+                            | chocolate tootsie roll chocolate bar candy canes biscuit.
+                            | Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet
+                            | roll. Toffee sugar
+                            | plum sugar plum jelly-o jujubes bonbon dessert carrot cake. Cookie
+                            | dessert tart muffin topping
+                            | donut icing fruitcake. Sweet roll cotton candy drag&eacute;e danish Candy canes
+                            | chocolate bar cookie.
+                            | Gingerbread apple pie oat cake. Carrot cake fruitcake bear claw. Pastry
+                            | gummi bears
+                            | marshmallow jelly-o.
+                        .modal-footer
+                          button.btn.btn-light-primary(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-x.d-block.d-sm-none
+                            span.d-none.d-sm-block Close
+                          button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-check.d-block.d-sm-none
+                            span.d-none.d-sm-block Accept
+          .col-md-6.col-12
+            .card
+              .card-header
+                h4.card-title
+                  | Vertically Centered
+              .card-content
+                .card-body
+                  p
+                    | Add 
+                    code .modal-dialog-centered
+                    |  to 
+                    code .modal-dialog
+                    |  to vertically
+                    |                                 center the modal.
+                  // button trigger for  Vertically Centered modal
+                  button.btn.btn-outline-primary.block(type='button' data-bs-toggle='modal' data-bs-target='#exampleModalCenter')
+                    | Launch Modal
+                  // Vertically Centered modal Modal
+                  #exampleModalCenter.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+                    .modal-dialog.modal-dialog-centered.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                      .modal-content
+                        .modal-header
+                          h5#exampleModalCenterTitle.modal-title
+                            | Vertically Centered
+                          button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                            i(data-feather='x')
+                        .modal-body
+                          p
+                            | Croissant jelly-o halvah chocolate sesame snaps. Brownie caramels candy
+                            | canes chocolate cake
+                            | marshmallow icing lollipop I love. Gummies macaroon donut caramels
+                            | biscuit topping danish.
+                        .modal-footer
+                          button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-x.d-block.d-sm-none
+                            span.d-none.d-sm-block Close
+                          button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-check.d-block.d-sm-none
+                            span.d-none.d-sm-block Accept
+          .col-md-6.col-12
+            .card
+              .card-header
+                h4.card-title Disabled Backdrop
+              .card-content
+                .card-body
+                  p
+                    | You can disable the backdrop by using 
+                    code data-bs-backdrop=&quot;false&quot;
+                  // Button trigger for Disabled Backdrop
+                  button.btn.btn-outline-primary.block(type='button' data-bs-toggle='modal' data-bs-backdrop='false' data-bs-target='#backdrop')
+                    | Launch Modal
+                  // Disabled Backdrop Modal
+                  #backdrop.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel4' aria-hidden='true')
+                    .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                      .modal-content
+                        .modal-header
+                          h4#myModalLabel4.modal-title Disabled Backdrop
+                          button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                            i(data-feather='x')
+                        .modal-body
+                          p
+                            | Candy oat cake topping topping chocolate cake. Icing pudding jelly beans
+                            | I love chocolate carrot
+                            | cake wafer candy canes. Biscuit croissant fruitcake bonbon souffl&eacute;.
+                        .modal-footer
+                          button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-x.d-block.d-sm-none
+                            span.d-none.d-sm-block Close
+                          button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-check.d-block.d-sm-none
+                            span.d-none.d-sm-block Accept
+      // Basic Modals end
+      // Modal Themes start
+      section#modal-themes
+        .row
+          .col-12
+            .card
+              .card-header
+                h4.card-title Modal Themes
+              .card-content
+                .card-body
+                  p.mb-1
+                    | Use class 
+                    code .bg-*
+                    |  with your 
+                    code .modal-header
+                    |  to change theme of
+                    |                                 modal
+                  .row
+                    .col-12
+                      .modal-primary.me-1.mb-1.d-inline-block
+                        // Button trigger for primary themes modal
+                        button.btn.btn-outline-primary(type='button' data-bs-toggle='modal' data-bs-target='#primary')
+                          | Primary
+                        // primary theme Modal
+                        #primary.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel160' aria-hidden='true')
+                          .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                            .modal-content
+                              .modal-header.bg-primary
+                                h5#myModalLabel160.modal-title.white
+                                  | Primary Modal
+                                button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                  i(data-feather='x')
+                              .modal-body
+                                | Tart lemon drops macaroon oat cake chocolate toffee chocolate
+                                | bar icing. Pudding jelly beans
+                                | carrot cake pastry gummies cheesecake lollipop. I love cookie
+                                | lollipop cake I love sweet
+                                | gummi
+                                | bears cupcake dessert.
+                              .modal-footer
+                                button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-x.d-block.d-sm-none
+                                  span.d-none.d-sm-block Close
+                                button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-check.d-block.d-sm-none
+                                  span.d-none.d-sm-block Accept
+                      .modal-success.me-1.mb-1.d-inline-block
+                        // Button trigger for Success theme modal
+                        button.btn.btn-outline-success(type='button' data-bs-toggle='modal' data-bs-target='#success')
+                          | Success
+                        // Success theme Modal
+                        #success.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel110' aria-hidden='true')
+                          .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                            .modal-content
+                              .modal-header.bg-success
+                                h5#myModalLabel110.modal-title.white
+                                  | Success Modal
+                                button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                  i(data-feather='x')
+                              .modal-body
+                                | Tart lemon drops macaroon oat cake chocolate toffee chocolate
+                                | bar icing. Pudding jelly beans
+                                | carrot cake pastry gummies cheesecake lollipop. I love cookie
+                                | lollipop cake I love sweet
+                                | gummi
+                                | bears cupcake dessert.
+                              .modal-footer
+                                button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-x.d-block.d-sm-none
+                                  span.d-none.d-sm-block Close
+                                button.btn.btn-success.ml-1(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-check.d-block.d-sm-none
+                                  span.d-none.d-sm-block Accept
+                      .modal-danger.me-1.mb-1.d-inline-block
+                        // Button trigger for danger theme modal
+                        button.btn.btn-outline-danger(type='button' data-bs-toggle='modal' data-bs-target='#danger')
+                          | Danger
+                        // Danger theme Modal
+                        #danger.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel120' aria-hidden='true')
+                          .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                            .modal-content
+                              .modal-header.bg-danger
+                                h5#myModalLabel120.modal-title.white
+                                  | Danger Modal
+                                button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                  i(data-feather='x')
+                              .modal-body
+                                | Tart lemon drops macaroon oat cake chocolate toffee chocolate
+                                | bar icing. Pudding jelly beans
+                                | carrot cake pastry gummies cheesecake lollipop. I love cookie
+                                | lollipop cake I love sweet
+                                | gummi bears cupcake dessert.
+                              .modal-footer
+                                button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-x.d-block.d-sm-none
+                                  span.d-none.d-sm-block Close
+                                button.btn.btn-danger.ml-1(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-check.d-block.d-sm-none
+                                  span.d-none.d-sm-block Accept
+                      .modal-info.me-1.mb-1.d-inline-block
+                        // Button trigger for info theme modal
+                        button.btn.btn-outline-info(type='button' data-bs-toggle='modal' data-bs-target='#info')
+                          | Info
+                        // info theme Modal
+                        #info.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel130' aria-hidden='true')
+                          .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                            .modal-content
+                              .modal-header.bg-info
+                                h5#myModalLabel130.modal-title.white
+                                  | Info Modal
+                                button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                  i(data-feather='x')
+                              .modal-body
+                                | Tart lemon drops macaroon oat cake chocolate toffee chocolate
+                                | bar icing. Pudding jelly beans
+                                | carrot cake pastry gummies cheesecake lollipop. I love cookie
+                                | lollipop cake I love sweet
+                                | gummi bears cupcake dessert.
+                              .modal-footer
+                                button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-x.d-block.d-sm-none
+                                  span.d-none.d-sm-block Close
+                                button.btn.btn-info.ml-1(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-check.d-block.d-sm-none
+                                  span.d-none.d-sm-block Accept
+                      .modal-warning.me-1.mb-1.d-inline-block
+                        // Button trigger for warning theme modal
+                        button.btn.btn-outline-warning(type='button' data-bs-toggle='modal' data-bs-target='#warning')
+                          | Warning
+                        // warning theme Modal
+                        #warning.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel140' aria-hidden='true')
+                          .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                            .modal-content
+                              .modal-header.bg-warning
+                                h5#myModalLabel140.modal-title.white
+                                  | Warning Modal
+                                button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                  i(data-feather='x')
+                              .modal-body
+                                | Tart lemon drops macaroon oat cake chocolate toffee chocolate
+                                | bar icing. Pudding jelly beans
+                                | carrot cake pastry gummies cheesecake lollipop. I love cookie
+                                | lollipop cake I love sweet
+                                | gummi bears cupcake dessert.
+                              .modal-footer
+                                button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-x.d-block.d-sm-none
+                                  span.d-none.d-sm-block Close
+                                button.btn.btn-warning.ml-1(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-check.d-block.d-sm-none
+                                  span.d-none.d-sm-block Accept
+                      .modal-dark.me-1.mb-1.d-inline-block
+                        // Button trigger for dark modal
+                        button.btn.btn-outline-dark(type='button' data-bs-toggle='modal' data-bs-target='#dark')
+                          | Dark
+                        // Dark theme Modal
+                        #dark.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel150' aria-hidden='true')
+                          .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                            .modal-content
+                              .modal-header.bg-dark.white
+                                span#myModalLabel150.modal-title Dark Modal
+                                button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                  i(data-feather='x')
+                              .modal-body
+                                | Tart lemon drops macaroon oat cake chocolate toffee chocolate
+                                | bar icing. Pudding jelly beans
+                                | carrot cake pastry gummies cheesecake lollipop. I love cookie
+                                | lollipop cake I love sweet
+                                | gummi bears cupcake dessert.
+                              .modal-footer
+                                button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-x.d-block.d-sm-none
+                                  span.d-none.d-sm-block Close
+                                button.btn.btn-dark.ml-1(type='button' data-bs-dismiss='modal')
+                                  i.bx.bx-check.d-block.d-sm-none
+                                  span.d-none.d-sm-block Accept
+      // Modal Themes end
+      // Modal Sizes start
+      section#modal-sizes
+        .card
+          .card-header
+            h4.card-title Modal Sizes
+          .card-content
+            .card-body
+              p
+                | Add class 
+                code .modal-{sm|lg|xl|full}
+                |  with 
+                code .modal-dialog
+                |  to create a modal
+                |                         with
+                |                         different size.
+              .row
+                .col-12
+                  // Modal sm size
+                  .me-1.mb-1.d-inline-block
+                    // Button trigger for small size modal modal
+                    button.btn.btn-outline-warning(type='button' data-bs-toggle='modal' data-bs-target='#small')
+                      | Small Modal
+                    // small size modal
+                    #small.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel19' aria-hidden='true')
+                      .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-sm(role='document')
+                        .modal-content
+                          .modal-header
+                            h4#myModalLabel19.modal-title Small Modal
+                            button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                              i(data-feather='x')
+                          .modal-body
+                            | Biscuit chocolate cake gummies. Lollipop I love macaroon bear claw
+                            | caramels. I love
+                            | marshmallow tiramisu I love fruitcake I love gummi bears.
+                            | Carrot cake topping liquorice. Pudding caramels liquorice sweet I love.
+                            | Donut powder cupcake
+                            | ice cream tootsie roll jelly.
+                          .modal-footer
+                            button.btn.btn-light-secondary.btn-sm(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-x.d-block.d-sm-none
+                              span.d-sm-block.d-none Close
+                            button.btn.btn-primary.ml-1.btn-sm(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-check.d-block.d-sm-none
+                              span.d-sm-block.d-none Accept
+                  // Modal default md size
+                  .me-1.mb-1.d-inline-block
+                    // Button trigger for default modal
+                    button.btn.btn-outline-warning(type='button' data-bs-toggle='modal' data-bs-target='#defaultSize')
+                      | Default Modal
+                    // Default size Modal
+                    #defaultSize.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel18' aria-hidden='true')
+                      .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                        .modal-content
+                          .modal-header
+                            h4#myModalLabel18.modal-title Default Modal
+                            button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                              i(data-feather='x')
+                          .modal-body
+                            | I love candy candy cake powder I love icing ice cream pastry. Biscuit
+                            | lemon drops sesame
+                            | snaps. Topping biscuit croissant gummi bears jelly beans cake cake bear
+                            | claw muffin. Lemon
+                            | drops oat cake pastry bear claw liquorice lemon drops.
+                          .modal-footer
+                            button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-x.d-block.d-sm-none
+                              span.d-none.d-sm-block Close
+                            button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-check.d-block.d-sm-none
+                              span.d-none.d-sm-block Accept
+                  // Modal lg size
+                  .me-1.mb-1.d-inline-block
+                    // Button trigger for large size modal
+                    button.btn.btn-outline-warning(type='button' data-bs-toggle='modal' data-bs-target='#large')
+                      | Large Modal
+                    // large size Modal
+                    #large.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel17' aria-hidden='true')
+                      .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-lg(role='document')
+                        .modal-content
+                          .modal-header
+                            h4#myModalLabel17.modal-title Large Modal
+                            button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                              i(data-feather='x')
+                          .modal-body
+                            | I love tart cookie cupcake. I love chupa chups biscuit. I love
+                            | marshmallow apple pie wafer
+                            | liquorice. Marshmallow cotton candy chocolate. Apple pie muffin tart.
+                            | Marshmallow halvah pie
+                            | marzipan lemon drops jujubes. Macaroon sugar plum cake icing toffee.
+                          .modal-footer
+                            button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-x.d-block.d-sm-none
+                              span.d-none.d-sm-block Close
+                            button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-check.d-block.d-sm-none
+                              span.d-none.d-sm-block Accept
+                  // Modal Xl size
+                  .me-1.mb-1.d-inline-block
+                    // Button trigger for Extra Large  modal
+                    button.btn.btn-outline-warning(type='button' data-bs-toggle='modal' data-bs-target='#xlarge')
+                      | Extra Large Modal
+                    // Extra Large Modal
+                    #xlarge.modal.fade.text-left.w-100(tabindex='-1' role='dialog' aria-labelledby='myModalLabel16' aria-hidden='true')
+                      .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-xl(role='document')
+                        .modal-content
+                          .modal-header
+                            h4#myModalLabel16.modal-title Extra Large Modal
+                            button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                              i(data-feather='x')
+                          .modal-body
+                            | Cake cupcake sugar plum. Sesame snaps pudding cupcake candy canes icing
+                            | cheesecake. Sweet roll
+                            | pudding lollipop apple pie gummies drag&eacute;e. Chocolate bar cookie caramels
+                            | I love lollipop ice
+                            | cream tiramisu lollipop sweet.
+                          .modal-footer
+                            button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-x.d-block.d-sm-none
+                              span.d-none.d-sm-block Close
+                            button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-check.d-block.d-sm-none
+                              span.d-none.d-sm-block Accept
+                  // Modal full size
+                  .me-1.mb-1.d-inline-block
+                    // Button trigger for full size modal
+                    button.btn.btn-outline-warning(type='button' data-bs-toggle='modal' data-bs-target='#full-scrn')
+                      | Full Screen Modal
+                    // full size modal
+                    #full-scrn.modal.fade.text-left.w-100(tabindex='-1' role='dialog' aria-labelledby='myModalLabel20' aria-hidden='true')
+                      .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-full(role='document')
+                        .modal-content
+                          .modal-header
+                            h4#myModalLabel20.modal-title Full Screen Modal
+                            button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                              i(data-feather='x')
+                          .modal-body
+                            | Cake cupcake sugar plum. Sesame snaps pudding cupcake candy canes icing
+                            | cheesecake. Sweet roll
+                            | pudding lollipop apple pie gummies drag&eacute;e. Chocolate bar cookie caramels
+                            | I love lollipop ice
+                            | cream tiramisu lollipop sweet.
+                          .modal-footer
+                            button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-x.d-block.d-sm-none
+                              span.d-none.d-sm-block Close
+                            button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                              i.bx.bx-check.d-block.d-sm-none
+                              span.d-none.d-sm-block Accept
+      // Modal Sizes end
+      // Form and scrolling Components start
+      section#form-and-scrolling-components
+        .row
+          .col-md-6.col-12
+            .card
+              .card-content
+                .card-body
+                  .form-group
+                    h4.card-title Modal with Login Form
+                    p  Created Simple Login Form.
+                    // Button trigger for login form modal
+                    button.btn.btn-outline-success(type='button' data-bs-toggle='modal' data-bs-target='#inlineForm')
+                      | Launch Modal
+                    // login form Modal
+                    #inlineForm.modal.fade.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel33' aria-hidden='true')
+                      .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                        .modal-content
+                          .modal-header
+                            h4#myModalLabel33.modal-title Login Form 
+                            button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                              i(data-feather='x')
+                          form(action='#')
+                            .modal-body
+                              label Email: 
+                              .form-group
+                                input.form-control(type='text' placeholder='Email Address')
+                              label Password: 
+                              .form-group
+                                input.form-control(type='password' placeholder='Password')
+                            .modal-footer
+                              button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                                i.bx.bx-x.d-block.d-sm-none
+                                span.d-none.d-sm-block Close
+                              button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                                i.bx.bx-check.d-block.d-sm-none
+                                span.d-none.d-sm-block login
+          .col-md-6.col-12
+            .card
+              .card-header
+                h4.card-title Scrolling long Content
+              .card-content
+                .card-body
+                  p If your content is longer you the page will autmatically adopt a scrollbar
+                  // Button trigger for scrollbar modal
+                  button.btn.btn-outline-success(type='button' data-bs-toggle='modal' data-bs-target='#exampleModalLong')
+                    | Launch demo modal
+                  // scrollbar Modal
+                  #exampleModalLong.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+                    .modal-dialog(role='document')
+                      .modal-content
+                        .modal-header
+                          h5#exampleModalLongTitle.modal-title Scrolling Modal
+                          button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                            i(data-feather='x')
+                        .modal-body
+                          p
+                            | Biscuit powder jelly beans. Lollipop candy canes croissant icing
+                            | chocolate cake. Cake fruitcake
+                            | powder pudding pastry.
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy
+                            | gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon drops
+                            | danish dessert I love
+                            | caramels powder.
+                          p
+                            | Chocolate cake icing tiramisu liquorice toffee donut sweet roll cake.
+                            | Cupcake dessert icing
+                            | drag&eacute;e
+                            | dessert. Liquorice jujubes cake tart pie donut. Cotton candy candy canes
+                            | lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie
+                            | roll carrot cake souffl&eacute; halvah.
+                            | Biscuit powder jelly beans. Lollipop candy canes croissant icing
+                            | chocolate cake. Cake fruitcake
+                            | powder pudding pastry.
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy
+                            | gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon drops
+                            | danish dessert I love
+                            | caramels powder
+                          p
+                            | Chocolate cake icing tiramisu liquorice toffee donut sweet roll cake.
+                            | Cupcake dessert icing
+                            | drag&eacute;e
+                            | dessert. Liquorice jujubes cake tart pie donut. Cotton candy candy canes
+                            | lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie
+                            | roll carrot cake souffl&eacute; halvah.
+                            | Biscuit powder jelly beans. Lollipop candy canes croissant icing
+                            | chocolate cake. Cake fruitcake
+                            | powder pudding pastry.
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy
+                            | gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon drops
+                            | danish dessert I love
+                            | caramels powder.
+                          p
+                            | Chocolate cake icing tiramisu liquorice toffee donut sweet roll cake.
+                            | Cupcake dessert icing
+                            | drag&eacute;e
+                            | dessert. Liquorice jujubes cake tart pie donut. Cotton candy candy canes
+                            | lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie
+                            | roll carrot cake souffl&eacute; halvah.
+                            | Biscuit powder jelly beans. Lollipop candy canes croissant icing
+                            | chocolate cake. Cake fruitcake
+                            | powder pudding pastry.
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy
+                            | gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon drops
+                            | danish dessert I love
+                            | caramels powder.
+                          p
+                            | Chocolate cake icing tiramisu liquorice toffee donut sweet roll cake.
+                            | Cupcake dessert icing
+                            | drag&eacute;e
+                            | dessert. Liquorice jujubes cake tart pie donut. Cotton candy candy canes
+                            | lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie
+                            | roll carrot cake souffl&eacute; halvah.
+                        .modal-footer
+                          button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-x.d-block.d-sm-none
+                            span.d-none.d-sm-block Close
+                          button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-check.d-block.d-sm-none
+                            span.d-none.d-sm-block Accept
+          .col-md-6.col-12
+            .card
+              .card-header
+                h4.card-title Scrolling long Content Inside Modal
+              .card-content
+                .card-body
+                  p
+                    | You can also create a scrollable modal that allows scroll the modal body by adding
+                    code .modal-dialog-scrollable
+                    |  to 
+                    code .modal-dialog
+                    | .
+                  // Button trigger for scrolling content modal
+                  button.btn.btn-outline-success(type='button' data-bs-toggle='modal' data-bs-target='#exampleModalScrollable')
+                    | Launch demo modal
+                  // scrolling content Modal
+                  #exampleModalScrollable.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalScrollableTitle' aria-hidden='true')
+                    .modal-dialog.modal-dialog-scrollable(role='document')
+                      .modal-content
+                        .modal-header
+                          h5#exampleModalScrollableTitle.modal-title
+                            | Scrolling long
+                            | Content
+                          button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                            i(data-feather='x')
+                        .modal-body
+                          p
+                            | Biscuit powder jelly beans. Lollipop candy canes croissant icing
+                            | chocolate cake. Cake fruitcake
+                            | powder pudding pastry
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy
+                            | gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon drops
+                            | danish dessert I love
+                            | caramels powder
+                          p
+                            | Chocolate cake icing tiramisu liquorice toffee donut sweet roll cake.
+                            | Cupcake dessert icing
+                            | drag&eacute;e dessert. Liquorice jujubes cake tart pie donut. Cotton candy
+                            | candy canes lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie roll carrot cake souffl&eacute; halvah. Biscuit powder jelly beans.
+                            | Lollipop candy canes
+                            | croissant icing chocolate cake. Cake fruitcake powder pudding pastry.
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon
+                            | drops danish dessert I
+                            | love caramels powder.
+                          p
+                            | drag&eacute;e dessert. Liquorice jujubes cake tart pie donut. Cotton candy
+                            | candy canes lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie roll carrot cake souffl&eacute; halvah.Biscuit powder jelly beans.
+                            | Lollipop candy canes croissant
+                            | icing chocolate cake. Cake fruitcake powder pudding pastry.
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon
+                            | drops danish dessert I
+                            | love caramels powder.
+                          p
+                            | Chocolate cake icing tiramisu liquorice toffee donut sweet roll cake.
+                            | Cupcake dessert icing
+                            | drag&eacute;e dessert. Liquorice jujubes cake tart pie donut. Cotton candy
+                            | candy canes lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie roll carrot cake souffl&eacute; halvah. Biscuit powder jelly beans.
+                            | Lollipop candy canes
+                            | croissant icing chocolate cake. Cake fruitcake powder pudding pastry.
+                          p
+                            | Tootsie roll oat cake I love bear claw I love caramels caramels halvah
+                            | chocolate bar. Cotton
+                            | candy gummi bears pudding pie apple pie cookie. Cheesecake jujubes lemon
+                            | drops danish dessert I
+                            | love caramels powder.
+                          p
+                            | Chocolate cake icing tiramisu liquorice toffee donut sweet roll cake.
+                            | Cupcake dessert icing
+                            | drag&eacute;e dessert. Liquorice jujubes cake tart pie donut. Cotton candy
+                            | candy canes lollipop liquorice
+                            | chocolate marzipan muffin pie liquorice.
+                          p
+                            | Powder cookie jelly beans sugar plum ice cream. Candy canes I love
+                            | powder sugar plum tiramisu.
+                            | Liquorice pudding chocolate cake cupcake topping biscuit. Lemon drops
+                            | apple pie sesame snaps
+                            | tootsie roll carrot cake souffl&eacute; halvah.
+                        .modal-footer
+                          button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-x.d-block.d-sm-none
+                            span.d-none.d-sm-block Close
+                          button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-check.d-block.d-sm-none
+                            span.d-none.d-sm-block Accept
+          .col-md-6.col-12
+            .card
+              .card-header
+                h4.card-title Disabled Animation
+              .card-content
+                .card-body
+                  p
+                    | For modals that simply appear rather than fade in to view, remove the 
+                    code .fade
+                    |                                 class from your
+                    |                                 modal markup.
+                  // Button trigger for disabled animation modal
+                  button.btn.btn-outline-success(type='button' data-bs-toggle='modal' data-bs-target='#animation')
+                    | Launch demo modal
+                  // disabled animation Modal
+                  #animation.modal.text-left(tabindex='-1' role='dialog' aria-labelledby='myModalLabel6' aria-hidden='true')
+                    .modal-dialog.modal-dialog-centered.modal-dialog-scrollable(role='document')
+                      .modal-content
+                        .modal-header
+                          h4#myModalLabel6.modal-title Disabled Animation
+                          button.close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                            i(data-feather='x')
+                        .modal-body
+                          p
+                            | Chocolate bar jelly drag&eacute;e cupcake chocolate bar I love donut liquorice.
+                            | Powder I love marzipan
+                            | donut candy canes jelly-o. Drag&eacute;e liquorice apple pie candy biscuit
+                            | danish lemon drops sugar plum.
+                          .alert.bg-rgba-success(role='alert')
+                            span.text-bold-600 Well done!
+                            |                                                 You successfully read this important alert
+                            |                                                 message.
+                        .modal-footer
+                          button.btn.btn-light-secondary(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-x.d-block.d-sm-none
+                            span.d-none.d-sm-block Close
+                          button.btn.btn-primary.ml-1(type='button' data-bs-dismiss='modal')
+                            i.bx.bx-check.d-block.d-sm-none
+                            span.d-none.d-sm-block Accept
+      // Form and scrolling Components end
+    footer
+      .footer.clearfix.mb-0.text-muted
+        .float-start
+          p 2021 &copy; Mazer
+        .float-end
+          p
+            | Crafted with 
+            span.text-danger
+              i.bi.bi-heart
+            |  by 
+            a(href='http://ahmadsaugi.com') A. Saugi
+script(src='vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+script(src='js/bootstrap.bundle.min.js')
+script(src='js/main.js')

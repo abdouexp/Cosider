@@ -1,0 +1,65 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Mot de passe oubli&eacute; - Cosider
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='css/app.css')
+  link(rel='stylesheet' href='css/pages/auth.css')
+#auth
+  .row.h-100
+    .col-lg-5.col-12
+      #auth-left
+        .auth-logo
+          a(href='index.html')
+            img(src='images/logo/logo.png' alt='Logo')
+        h1.auth-title Mot de passe oubli&eacute;?
+        p.auth-subtitle.mb-5
+          | Saisissez votre e-mail et nous vous enverrons un lien de r&eacute;initialisation du mot de passe.
+        form#khra2
+          .form-group.position-relative.has-icon-left.mb-4
+            input#khra.form-control.form-control-xl(type='email' placeholder='Email')
+            .form-control-icon
+              i.bi.bi-envelope
+          button.btn.btn-primary.me-1.mb-1(type='submit') Envoyer
+    .col-lg-7.d-none.d-lg-block
+      #auth-right
+
+
+  
+
+  
+  script.
+        khra2.addEventListener("submit",(e)=> {
+         e.preventDefault();
+    getDevices = async () => {
+      const location = window.location.hostname;
+      const settings = {
+    method: 'POST',
+      headers:{
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(data)
+    };
+    try {
+      const fetchResponse = await fetch(`http://${location}:5000/forgotpassword`, settings);
+      const data = await fetchResponse.json();
+      
+      return data;
+    } 
+    catch (e) {
+    return e;
+    }
+    } 
+          
+          let email = document.getElementById("khra").value;
+         
+
+          let data= {"email": email,};
+
+    getDevices(data);
+
+          })

@@ -1,0 +1,53 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Inscription - Cosider
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='css/app.css')
+  link(rel='stylesheet' href='css/pages/auth.css')
+#auth
+  .row.h-100
+    .col-lg-5.col-12
+      #auth-left
+        .auth-logo
+          a(href='/')
+            img(src='images/logo/logo.png' alt='Logo')
+        h1.auth-title S&apos;inscrire
+        p.auth-subtitle.mb-5 Saisissez vos donn&eacute;es pour vous inscrire.
+        form(method='POST', action='/users')
+          .form-group.position-relative.has-icon-left.mb-4
+            input#email.form-control.form-control-xl(type='text' placeholder='Email' name='email')
+            .form-control-icon
+              i.bi.bi-envelope
+          .form-group.position-relative.has-icon-left.mb-4
+            input#username.form-control.form-control-xl(type='text' placeholder="Nom d'utilisateur " name='username')
+            .form-control-icon
+              i.bi.bi-at
+          .form-group.position-relative.has-icon-left.mb-4
+            input#name.form-control.form-control-xl(type='text' placeholder="Nom complet " name='name')
+            .form-control-icon
+              i.bi.bi-person              
+          .form-group.position-relative.has-icon-left.mb-4
+            input#password.form-control.form-control-xl(type='password' placeholder='Mot de passe' name='password')
+            .form-control-icon
+              i.bi.bi-shield-lock
+          .form-group.position-relative.has-icon-left.mb-4
+            input#confirmpassword.form-control.form-control-xl(type='password' placeholder='Confirmez votre mot de passe')
+            .form-control-icon
+              i.bi.bi-shield-lock
+          .form-group.position-relative.has-icon-left.mb-4
+            input#role.form-control.form-control-xl(type='text' placeholder='Role' name='role')
+            .form-control-icon
+              i.bi.bi-briefcase
+                            
+          button.btn.btn-primary.btn-block.btn-lg.shadow-lg.mt-5 Inscrivez-vous
+        .text-center.mt-5.text-lg.fs-4
+          p.text-gray-600
+            | Vous avez d&eacute;j&agrave; un compte? 
+            a.font-bold(href='auth') Connectez vous
+            | .
+    .col-lg-7.d-none.d-lg-block
+      #auth-right

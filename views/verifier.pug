@@ -1,0 +1,460 @@
+doctype html
+head
+  -var khtek
+  -var verif
+  -var listedemverif
+  -var comverif
+  -var listecomverif
+  -var ordreverif
+  -var recepverif
+  -var listerecepverif
+  -var remiverif
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Rediger commande
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(rel='stylesheet' href='/vendors/choices.js/choices.min.css')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/css/bootstrap.css')
+
+  link(rel='stylesheet' href='/vendors/perfect-scrollbar/perfect-scrollbar.css')
+  link(rel='stylesheet' href='/vendors/bootstrap-icons/bootstrap-icons.css')
+  link(rel='stylesheet' href='/css/app.css')
+  link(rel='stylesheet' href='vendors/fontawesome/all.min.css') 
+  link(rel='shortcut icon' href='/images/favicon.svg' type='image/x-icon')
+#app
+  #sidebar.active
+    .sidebar-wrapper.active
+      .sidebar-header
+        .d-flex.justify-content-between
+          .logo
+            a(href='index')
+              img(src='/images/logo/logo.png' alt='Logo' srcset='')
+          .toggler
+            a.sidebar-hide.d-xl-none.d-block(href='#')
+              i.bi.bi-x.bi-middle
+      .sidebar-menu
+        ul.menu
+          li.sidebar-item
+            a.sidebar-link(href='../')
+              i.bi.bi-grid-fill
+              span Acceuil
+          li.sidebar-item
+            a.sidebar-link(href='/Consultation')
+              i.bi.bi-file-earmark-medical-fill
+              span Consulter les processus
+          li.sidebar-item
+            a.sidebar-link(href='/fdemande')
+              i.bi.bi-pen-fill
+              span Faire une demande
+          li.sidebar-item
+            a.sidebar-link(href='/Encours')
+              i.bi.bi-collection-fill
+              span Demandes en cours
+          li.sidebar-item.active
+            a.sidebar-link(href='/verifier')
+              i.bi.bi-collection-fill
+              span Dossiers a verifier           
+          li.sidebar-item
+            a.sidebar-link(href='/Historique')
+              i.bi.bi-stack
+              span Historique
+          li.sidebar-item
+            a.sidebar-link(href='/logout')
+              i.fa.fa-sign-out-alt(aria-hidden='true')
+              span Se déconnecter               
+      button.sidebar-toggler.btn.x
+        i(data-feather='x')
+  #main
+    header.mb-3
+      a.burger-btn.d-block.d-xl-none(href='#')
+        i.bi.bi-justify.fs-3
+    .page-heading
+      .page-title
+        .row
+          .col-12.col-md-6.order-md-1.order-last
+            h3 Verifier dossier
+            p.text-subtitle.text-muted
+              | V&eacute;rifier des fichiers, des mat&eacute;riaux, des n&eacute;cessit&eacute;s et bien plus au bout d&apos;un clic
+          .col-12.col-md-6.order-md-2.order-first
+            nav.breadcrumb-header.float-start.float-lg-end(aria-label='breadcrumb')
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='../') Acceuil
+                li.breadcrumb-item 
+                  a(href='/verifier') Dossier à verifier
+                li.breadcrumb-item.active(aria-current='page') Verifier dossier
+      section.section
+        .card
+          .card-header
+            h4.card-title Verifier les documents
+          .card-body
+            p
+              |  V&eacute;rifier la demande, le bon de commande, le PV de reception, le PV de remise et l'ordre de paiment
+            .list-group.list-group-horizontal-sm.mb-1.text-center(role='tablist')
+              a#list-saturday-list.list-group-item.list-group-item-action.active(data-bs-toggle='list' href='#list-saturday' role='tab') Demande
+              a#list-sunday-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-sunday' role='tab') Bon de Commande
+              a#list-monday-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-monday' role='tab') Ordre de paiment
+              a#list-tuesday-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-tuesday' role='tab') Pv de reception
+              a#list-wednesday-list.list-group-item.list-group-item-action(data-bs-toggle='list' href='#list-wednesday' role='tab') Pv de remise
+            .tab-content.text-justify
+              #list-saturday.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='list-saturday-list')
+                .card-content
+                  .card-body
+                    form#vardemande.form.form-horizontal
+                      .form-body
+                        .row
+                          .col-md-3
+                            label Date
+                          .col-md-9.form-group
+                            input#email-id.form-control(type='text' name='date' value=verif.date disabled=true )
+                          .col-md-3
+                            label Nom
+                          .col-md-9.form-group
+                            input#first-name.form-control(type='text' name='type' value=verif.nom disabled=true )
+                          .col-md-3
+                            label Service
+                          .col-md-9.form-group
+                            input#contact-info.form-control(type='text' name='service' value=verif.service disabled=true )
+                          .col-md-3
+                            label type demande
+                          .col-md-9.form-group
+                            input#type.form-control(type='text' name='types' value=verif.type disabled=true )
+
+                          hr
+                          strong Liste des items
+                          hr
+
+                          .col-md-3
+                            .form-group
+                              label Designation
+                          .col-md-1
+                            .form-group
+                              label Unité
+                          .col-md-2
+                            .form-group
+                              label Quantité demandée
+                          .col-md-2
+                            .form-group
+                              label Quantité accordée
+                          .col-md-4
+                            .form-group
+                              label Observations
+                              
+
+                          each liste in listedemverif
+                            .col-md-3
+                                .form-group
+                                input#ut.form-control.round(type='text' value=liste.désignation disabled=true )
+                                label  
+                            .col-md-1
+                                .form-group
+                                input#ut.form-control.round(type='text' value=liste.unitémesure disabled=true )
+                                label  
+                            .col-md-2
+                                .form-group
+                                input#ut.form-control.round(type='text' value=liste.quantitédem disabled=true )
+                                label  
+                            .col-md-2
+                                .form-group
+                                input#qts.form-control.round(type='text' value=liste.quantitéliv disabled=true )
+                                label  
+                            .col-md-4
+                                .form-group
+                                input#obs.form-control.round(type='text' value=liste.observation disabled=true )
+                                label                                  
+
+
+                          
+                          .col-sm-12.d-flex.justify-content-end
+                            a.btn.btn-primary.me-1.mb-1(href='/demandefinale/'+verif.uuid) Valider
+                            a.btn.btn-primary.me-1.mb-1(href='/demanderetraiter/'+verif.uuid) Signaler
+                                               //-rediger commande ======================================================================================== 
+              #list-sunday.tab-pane.fade.show(role='tabpanel' aria-labelledby='list-sunday-list')
+                .card-content
+                  .card-body
+                    if (comverif != null)
+                      form#varcommande.form.form-horizontal
+                        .form-body
+                          .row
+                            .col-md-3
+                              label Date
+                            .col-md-9.form-group
+                              input#date.form-control(type='text' name='date' value=comverif.date disabled=true)
+                            .col-md-3
+                              label Date livraison
+                            .col-md-9.form-group
+                              input#dateliv.form-control(type='text' name='date' value=comverif.dateliv disabled=true)                            
+                            .col-md-3
+                              label Fournisseur
+                            .col-md-9.form-group
+                              input#fournaisseur.form-control(type='text' name='type' value=comverif.fournisseur disabled=true)
+                            .col-md-3
+                              label Lieu
+                            .col-md-9.form-group
+                              input#lieu.form-control(type='text' name='service' value=comverif.lieu disabled=true)
+                            .col-md-3
+                              label Condition
+                            .col-md-9.form-group
+                              input#condition.form-control(type='text' name='service' value=comverif.conditions disabled=true)                            
+                              label
+                            hr
+                            strong Liste des items 
+                            hr 
+                            
+                              
+                            if (listecomverif != null)
+                              .col-md-3
+                                  .form-group
+                                  label Description
+                              .col-md-2
+                                  .form-group
+                                  label Unité de mesure
+                              .col-md-2
+                                  .form-group
+                                  label Quantité
+                              .col-md-2
+                                  .form-group
+                                  label prix unitaire
+                              .col-md-3
+                                  .form-group
+                                  label prix totale
+
+                              
+                              each liste1 in listecomverif
+                                  .col-md-3
+                                      .form-group
+                                      input#ut.form-control.round(type='text' value=liste1.description disabled=true )
+                                      label  
+                                  .col-md-2
+                                      .form-group
+                                      input#ut.form-control.round(type='text' value=liste1.unitémesure disabled=true )
+                                      label  
+                                  .col-md-2
+                                      .form-group
+                                      input#qts.form-control.round(type='text' value=liste1.quantité disabled=true)
+                                      label  
+                                  .col-md-2
+                                      .form-group
+                                      input#prix.form-control.round(type='text' value=liste1.prixunit disabled=true)
+                                      label  
+                                  .col-md-3
+                                      .form-group
+                                      input#prixtot.form-control.round(type='text' value=liste1.prixtot disabled=true)
+                                      label  
+                                
+
+                          
+                          .col-sm-12.d-flex.justify-content-end
+                            a.btn.btn-primary.me-1.mb-1(href='/demandefinale/'+verif.uuid) Valider
+                            a.btn.btn-primary.me-1.mb-1(href='/demanderetraiter/'+verif.uuid) Signaler
+                    if (comverif == null)
+                      h4 Il n'y a pas de bon de commande dans ce dossier
+
+                                               //-rediger paiement ========================================================================================                
+              #list-monday.tab-pane.fade.show(role='tabpanel' aria-labelledby='list-monday-list')
+                .card-content
+                  .card-body
+                    if (ordreverif != null)
+                      form#vardemandes2.form.form-horizontal(method='POST' action='/paiement')
+                        .form-body
+                          .row
+                            .col-md-3
+                              label Date
+                            .col-md-9.form-group
+                              input#date.form-control(type='text' name='date' value=ordreverif.date disabled=true)
+                            .col-md-3
+                              label Etabli par:
+                            .col-md-9.form-group
+                              input#etablisseur.form-control(type='text' name='etabli' value=ordreverif.etablisseur disabled=true)
+                            .col-md-3
+                              label Nature de la depence
+                            .col-md-9.form-group
+                              input#naturedepence.form-control(type='text' name='Nature' value=ordreverif.naturedépence disabled=true)
+                            .col-md-3
+                              label Mode de paiment
+                            .col-md-9.form-group
+                              input#naturedepence.form-control(type='text' name='Nature' value=ordreverif.modepaiement disabled=true)
+                            .col-md-12
+                              strong Pieces jointes                          
+                              .form-floating
+                              textarea#floatingTextarea.form-control(value=ordreverif.piecejointe disabled=true)
+                              label
+                            hr  
+                            .col-md-3
+                              strong Beneificiere 
+                            .col-md-4.form-group
+                              label Nom
+                              input#NomBenif.form-control(type='text' name='type' value=ordreverif.nombenef disabled=true)
+                            .col-md-5.form-group
+                              label Adressse
+                              input#addBenif.form-control(type='text' name='type' value=ordreverif.adressebenef disabled=true)
+                            hr                         
+                            .col-md-3
+                              strong Libellé de l'operation
+                            .col-md-9.form-group
+                              input#libellite.form-control(type='text' name='type' value=ordreverif.libellé disabled=true) 
+                            .col-md-3
+                              strong   
+                            .col-md-3.form-group
+                              label Montant en chiffre Da
+                              input#Montantc.form-control(type='text' name='type' value=ordreverif.montantchiffre disabled=true)
+                            .col-md-6.form-group 
+                              label Montant en lettre
+                              input#MontantL.form-control(type='text' name='type' value=ordreverif.montantlettre disabled=true)                                                                                         
+                              label  
+                              
+                            
+                            .col-sm-12.d-flex.justify-content-end
+                              a.btn.btn-primary.me-1.mb-1(href='/demandefinale/'+verif.uuid) Valider
+                              a.btn.btn-primary.me-1.mb-1(href='/demanderetraiter/'+verif.uuid) Signaler
+                    if (ordreverif == null)
+                      h4 Il n'y a pas d'ordre de paiement dans ce dossier
+                                               //-rediger recep ======================================================================================== 
+              #list-tuesday.tab-pane.fade.show(role='tabpanel' aria-labelledby='list-tuesday-list')
+                .card-content
+                  .card-body
+                    if (recepverif != null)
+                      form#varreception.form.form-horizontal
+                        .form-body
+                          .row
+                            .col-md-3
+                              label Date
+                            .col-md-9.form-group
+                              input#dateR.form-control(type='text' name='date' value=recepverif.date  disabled=true )
+                            .col-md-3
+                              label Site
+                            .col-md-9.form-group
+                              input#site.form-control(type='text' name='Site' value=recepverif.site  disabled=true )
+                            .col-md-3
+                              label Code d'article
+                            .col-md-9.form-group
+                              input#codeA.form-control(type='text' name='CodeArticle' value=recepverif.codearticle  disabled=true )
+                            .col-md-3
+                              label Numero de facture
+                            .col-md-9.form-group
+                              input#numfac.form-control(type='text' name='Numerofacture' value=recepverif.numfacture  disabled=true )    
+                            .col-md-3
+                              label Observation
+                            .col-md-9.form-group
+                              input#observationR.form-control(type='text' name='Observation' value=recepverif.observation  disabled=true )   
+                            hr  
+                            b Nous avons procédé a la reception du Materiel ou equipement suivants:
+                            if (listerecepverif != null)
+                              .col-md-12
+                                label 
+                              .col-md-8
+                                .form-group
+                                label Designations 
+                              .col-md-4
+                                .form-group
+                                label Quantité
+    
+
+                              each liste2 in listerecepverif
+                                .col-md-8
+                                  .form-group
+                                  input#Qtsr3.form-control(type='text' name='Quantite' value=liste2.designation  disabled=true )
+                                  label  
+                                .col-md-4
+                                  .form-group
+                                  input#Qtsr3.form-control(type='text' name='Quantite' value=liste2.quantité  disabled=true )
+                                  label  
+
+                      
+
+
+
+
+                            .col-sm-12.d-flex.justify-content-end
+                              a.btn.btn-primary.me-1.mb-1(href='/demandefinale/'+verif.uuid) Valider
+                              a.btn.btn-primary.me-1.mb-1(href='/demanderetraiter/'+verif.uuid) Signaler
+                    if (recepverif == null)
+                      h4 Il n'y a pas de PV de reception dans ce dossier     
+                                               //-remise ======================================================================================== 
+
+              #list-wednesday.tab-pane.fade.show(role='tabpanel' aria-labelledby='list-wednesday-list')
+                .card-content
+                  .card-body
+                    if (remiverif != null)
+                      form#vardemandes2.form.form-horizontal
+                        .form-body
+                          .row
+                            .col-md-3
+                              label Date
+                            .col-md-9.form-group
+                              input#dateR.form-control(type='text' name='date' value=remiverif.date disabled=true)
+                            .col-md-3
+                              label Site
+                            .col-md-9.form-group
+                              input#Site.form-control(type='text' name='Site' value=remiverif.site disabled=true)
+                            .col-md-3
+                              label Code d'article
+                            .col-md-9.form-group
+                              input#CodeA.form-control(type='text' name='CodeArticle' value=remiverif.codearticle disabled=true)
+                            .col-md-3
+                              label Numero de facture
+                            .col-md-9.form-group
+                              input#Numfac.form-control(type='text' name='Numerofacture' value=remiverif.numfacture disabled=true)      
+                            hr  
+                            b Nous avons procédé a la reception du Materiel ou equipement suivants:  
+                            .col-md-12  
+
+                              .form-group
+                              textarea#floatingTextarea.form-control(placeholder=remiverif.details rows='5' disabled=true)
+                              label                
+                            .col-md-12  
+                              b Observations
+                              .form-group
+                              textarea#floatingTextarea.form-control( rows='3' disabled=true)
+                              label                                 
+                            hr
+                            .col-md-12
+                              b Le prenant
+                              label
+                            .col-md-3
+                              label Nom
+                            .col-md-9.form-group
+                              input#Nomprenant.form-control(type='text' name='Nomprenant' value=remiverif.nom disabled=true)  
+                            .col-md-3
+                              label prenom
+                            .col-md-9.form-group
+                              input#Numfac.form-control(type='text' name='Numerofacture' value=remiverif.prenom disabled=true)  
+                            .col-md-3
+                              label Fonction
+                            .col-md-9.form-group
+                              input#Numfac.form-control(type='text' name='Numerofacture' value=remiverif.fonction disabled=true)  
+                            .col-md-3
+                              label Date
+                            .col-md-9.form-group
+                              input#dateR2.form-control(type='text' name='Numerofacture' value=remiverif.date2 disabled=true)                              
+                            .col-md-12
+                              label 
+                            .col-sm-12.d-flex.justify-content-end
+                              a.btn.btn-primary.me-1.mb-1(href='/demandefinale/'+verif.uuid) Valider
+                              a.btn.btn-primary.me-1.mb-1(href='/demanderetraiter/'+verif.uuid) Signaler
+
+                    if (remiverif == null)
+                      h4 Il n'y a pas de PV de reception dans ce dossier 
+
+
+
+
+                            
+               
+
+footer
+.footer.clearfix.mb-0.text-muted
+.float-start
+p 2021 &copy; Cosider
+
+  script. 
+   var terma = '!{khtek}'
+script(src='/vendors/perfect-scrollbar/perfect-scrollbar.min.js')
+script(src='/vendors/choices.js/choices.min.js')
+script(src='/js/pages/form-element-select.js')
+script(src='/js/bootstrap.bundle.min.js')
+script(src='/js/main.js')
+script(src='vendors/fontawesome/all.min.js')
+script(src='/js/traitementc.js')
+

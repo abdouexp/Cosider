@@ -1,0 +1,25 @@
+// connect to db
+
+mysql -u root
+
+// show data bases
+
+SHOW DATABASES;
+
+// choose a data bases
+
+USE database_name
+
+// show tables
+
+SHOW TABLES;
+
+// show one tale en particulier et ces tuples
+
+DESCRIBE pet;
+
+// delete tables
+
+DROP TABLE name;
+
+select * from users;
