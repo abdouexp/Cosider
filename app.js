@@ -113,7 +113,6 @@ app.post('/users', async(req, res) => {
 app.get('/users', async (req, res) => {
   try {
     const users = await User.findAll()
-    console.log(users[1]);
     ver5=users;
     return res.json(users);
     
@@ -173,32 +172,7 @@ app.put('/users/:uuid', async (req, res) => {
   }
 })
 
-app.post('/posts', async (req, res) => {
-  // const { userUuid, body } = req.body
-  const { body } = req.body
 
-  try{
-    const user = await User.findOne({ where: { uuid: ver }})
-
-    const post = await Post.create({ body, userId: user.id })
-
-    return res.json(post)
-  } catch(err){
-    console.log(err)
-    return res.status(500).json(err)
-  }
-})
-
-app.get('/posts', async (req, res) => {
-  try{
-    const posts = await Post.findAll({ include: 'user' })
-
-    return res.json(posts)
-  } catch(err){
-    console.log(err)
-    return res.status(500).json(err)
-  }
-})
 
 app.post('/demande', async(req, res) => {
   const { date, type, service} = req.body;
