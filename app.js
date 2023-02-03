@@ -277,14 +277,14 @@ app.get('/listedemande', async (req, res) => {
   }
 })
 
-app.post('/commande', async(req, res) => {
-  var { uuid, date, dateliv, fournisseur, lieu, conditions,
-        item, description, unitémesure, quantité, prixunit, prixtot,
-        item2, description2, unitémesure2, quantité2, prixunit2, prixtot2,
-        item3, description3, unitémesure3, quantité3, prixunit3, prixtot3,
-        item4, description4, unitémesure4, quantité4, prixunit4, prixtot4,
-        item5, description5, unitémesure5, quantité5, prixunit5, prixtot5
-      } = req.body
+app.post('/commande', async (req, res) => {
+  const commandedata= { uuid, date, dateliv, fournisseur, lieu, conditions, ...items } = req.body;
+console.log(commandedata);
+  try {
+    const Demande = await demande.findOne({ where: { uuid } });
+    if (!Demande) {
+      return res.status(400).json({ error: 'Demande not found' });
+    }
 
   try{
     const Demande = await demande.findOne({ where: { uuid }})
