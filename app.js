@@ -249,22 +249,7 @@ app.get('/demande/:uuid', async (req, res) => {
   }
 })
 
-app.post('/listedemande', async (req, res) => {
-  // const { userUuid, body } = req.body
-  const { num, désignation, unitémesure, quantitédem, quantitéliv, observation } = req.body
 
-  try{
-    const Demande = await demande.findOne({ where: { uuid: ver }})
-
-    const Listedemande = await listedemande.create({ num, désignation, unitémesure, quantitédem, quantitéliv, observation, demandeId: Demande.id })
-    console.log(req.body);
-
-    return res.json(Listedemande)
-  } catch(err){
-    console.log(err)
-    return res.status(500).json(err)
-  }
-})
 
 app.get('/listedemande', async (req, res) => {
   try{
@@ -286,32 +271,44 @@ console.log(commandedata);
       return res.status(400).json({ error: 'Demande not found' });
     }
 
-  try{
-    const Demande = await demande.findOne({ where: { uuid }})
+    const Commande = await commande.create({
+      date,
+      dateliv,
+      fournisseur,
+      lieu,
+      conditions,
+      demandeId: Demande.id,
+    });
 
-    const Commande = await commande.create({ date, dateliv, fournisseur, lieu, conditions, demandeId: Demande.id })
+    const listecommandes = [];
+    for (let i = 1; i <= 5; i++) {
+      const item = items[`item${i}`];
+      const description = items[`description${i}`];
+      const unitémesure = items[`unitémesure${i}`];
+      const quantité = items[`quantité${i}`];
+      const prixunit = items[`prixunit${i}`];
+      const prixtot = items[`prixtot${i}`];
 
-    const Listecommande1 = description ? await listecommande.create({ item, description, unitémesure, quantité, prixunit, prixtot, commandeId: Commande.id }) : null
-    item=item2, description=description2, unitémesure=unitémesure2, quantité=quantité2, prixunit=prixunit2, prixtot=prixtot2
-    const Listecommande2 = description ? await listecommande.create({ item, description, unitémesure, quantité, prixunit, prixtot, commandeId: Commande.id }) : null
-    item=item3, description=description3, unitémesure=unitémesure3, quantité=quantité3, prixunit=prixunit3, prixtot=prixtot3
-    const Listecommande3 = description ? await listecommande.create({ item, description, unitémesure, quantité, prixunit, prixtot, commandeId: Commande.id }) : null
-    item=item4, description=description4, unitémesure=unitémesure4, quantité=quantité4, prixunit=prixunit4, prixtot=prixtot4
-    const Listecommande4 = description ? await listecommande.create({ item, description, unitémesure, quantité, prixunit, prixtot, commandeId: Commande.id }) : null
-    item=item5, description=description5, unitémesure=unitémesure5, quantité=quantité5, prixunit=prixunit5, prixtot=prixtot5
-    const Listecommande5 = description ? await listecommande.create({ item, description, unitémesure, quantité, prixunit, prixtot, commandeId: Commande.id }) : null
+      if (description) {
+        const Listecommande = await listecommande.create({
+          item,
+          description,
+          unitémesure,
+          quantité,
+          prixunit,
+          prixtot,
+          commandeId: Commande.id,
+        });
+        listecommandes.push(Listecommande);
+      }
+    }
 
-    return res.json(Commande,
-      Listecommande1,
-      Listecommande2,
-      Listecommande3,
-      Listecommande4,
-      Listecommande5)
-  } catch(err){
-    console.log(err)
-    return res.status(500).json(err)
+    return res.json({ Commande, listecommandes });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
-})
+});
 
 app.get('/commande', async (req, res) => {
   try {
